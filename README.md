@@ -1,6 +1,8 @@
 RubyEDS
 =======
 
+Forked from Sam Popowich. Switched to use httpclient.
+
 Ruby wrapper for the EDS API.
 
 This module is based on Nitin Arora's Python binding for the EDS API.
