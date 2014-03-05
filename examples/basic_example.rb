@@ -28,7 +28,7 @@ hits = basic_search("global warming", session_token, auth_token)
 pp hits
 
 # Retrieve and display number of results
-doc = Nokogiri::XML(hits)
+doc = Nokogiri::XML(hits.body)
 doc.remove_namespaces!
 puts "Number of Results: #{doc.xpath("//TotalHits").inner_text}"
 
