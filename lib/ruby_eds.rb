@@ -48,6 +48,21 @@ module RubyEDS
       "Accept" => "#{return_type}"})
   end
 
+
+  def search(query, session_token, auth_token, opts = {})
+    query_hash = opts
+    query_hash[:query-1] = query
+    
+    header_hash = {"x-authenticationToken" => "#{auth_token}", 
+      "x-sessionToken" => "#{session_token}", 
+      "Accept" => "#{return_type}"}
+    
+    response = HTTPClient.get("http://eds-api.ebscohost.com/edsapi/rest/Search", 
+      query_hash, 
+      header_hash)
+  end
+
+
   def advanced_search(search_json, return_type="xml")
   end
  
