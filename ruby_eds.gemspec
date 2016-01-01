@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/ualbertalib/ruby_eds"
   s.files = ["lib/ruby_eds.rb"]
   s.license = 'MIT'
+  s.add_runtime_dependency "httpclient", [">= 0"]
 end
