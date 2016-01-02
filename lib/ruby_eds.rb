@@ -72,6 +72,14 @@ module RubyEDS
       header_hash)
   end
 
+  def retrieve(dbid, an, session_token, auth_token, return_type = 'xml')
+    response = HTTPClient.get("http://eds-api.ebscohost.com/edsapi/rest/Retrieve", 
+      { "dbid" => "#{dbid}",
+      "an" => "#{an}"}, 
+      {"x-authenticationToken" => "#{auth_token}", 
+      "x-sessionToken" => "#{session_token}", 
+      "Accept" => "#{return_type}"})
+  end
 
   def advanced_search(search_json, return_type="xml")
   end
