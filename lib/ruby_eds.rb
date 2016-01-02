@@ -49,13 +49,23 @@ module RubyEDS
   end
 
 
-  def search(query, session_token, auth_token, opts = {})
+  def search(query_strings, session_token, auth_token, return_type = 'xml', opts = {})
     query_hash = opts
-    query_hash[:query-1] = query
+
+    unless query_strings.respond_to?(:each)
+      query_strings = [query_strings.to_s]
+    end
+
+    i = 1
+    query_strings.each do |query_string|
+      query_num = 'query-' + i.to_s
+      query_hash[query_num] = query_string
+      i = i+1
+    end
     
     header_hash = {"x-authenticationToken" => "#{auth_token}", 
-      "x-sessionToken" => "#{session_token}", 
-      "Accept" => "#{return_type}"}
+      "x-sessionToken" => "#{session_token}",
+      'Accept' => return_type}
     
     response = HTTPClient.get("http://eds-api.ebscohost.com/edsapi/rest/Search", 
       query_hash, 
