@@ -2,7 +2,7 @@ RubyEDS
 =======
 
 
-Forked from Sam Popowich. Switched to use httpclient.
+Forked from Sam Popowich. Switched to use httpclient, and a more general search method that allows more sophisticated queries.
 
 Ruby wrapper for the EDS API.
 
