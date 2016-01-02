@@ -27,6 +27,9 @@ pp info
 hits = basic_search("global warming", session_token, auth_token)
 pp hits
 
+# perform a more complicated search and print the results
+hits = search(['catfish', 'aquariums'], session_token, auth_token, limiter: 'FT:y,RV:y')
+
 # Retrieve and display number of results
 doc = Nokogiri::XML(hits.body)
 doc.remove_namespaces!
