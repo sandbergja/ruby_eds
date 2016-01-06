@@ -50,7 +50,7 @@ module RubyEDS
 
 
   def search(query_strings, session_token, auth_token, return_type = 'xml', opts = {})
-    query_hash = opts
+    query_hash = {}
 
     unless query_strings.respond_to?(:each)
       query_strings = [query_strings.to_s]
@@ -62,6 +62,8 @@ module RubyEDS
       query_hash[query_num] = query_string
       i = i+1
     end
+    
+    query_hash.merge(opts)
     
     header_hash = {"x-authenticationToken" => "#{auth_token}", 
       "x-sessionToken" => "#{session_token}",
