@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = "ruby_eds"
-  s.version = "1.1.0"
+  s.version = "1.1.1"
   s.date = "2013-06-30"
   s.summary = "Ruby wrapper for EDS API."
   s.description = s.summary

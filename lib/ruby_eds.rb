@@ -70,7 +70,7 @@ module RubyEDS
       'Accept' => return_type}
     
     response = HTTPClient.get("http://eds-api.ebscohost.com/edsapi/rest/Search", 
-      query_hash, 
+      query_hash.to_query, 
       header_hash)
   end
 
