@@ -5,7 +5,7 @@ require 'httpclient'
 module RubyEDS
 
   def authenticate_user(username, password)
-    auth_json = {"UserId"=>"#{username}","Password"=>"#{password}","InterfaceId"=>"WSapi"}.to_json
+    auth_json = {"UserId"=>"#{username}","Password"=>"#{password}","InterfaceId"=>"edsapi"}.to_json
     response = HTTPClient.post('https://eds-api.ebscohost.com/authservice/rest/uidauth', 
       auth_json, 'Content-Type' => 'application/json')
     doc = Nokogiri::XML(response.body)
