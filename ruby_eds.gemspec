@@ -10,4 +10,5 @@ Gem::Specification.new do |s|
   s.files = ["lib/ruby_eds.rb"]
   s.license = 'MIT'
   s.add_runtime_dependency "httpclient", [">= 0"]
+  s.add_runtime_dependency "rails", [">=3.0.9"]
 end

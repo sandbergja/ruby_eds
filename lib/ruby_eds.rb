@@ -1,6 +1,7 @@
 require 'nokogiri'
 require 'json'
 require 'httpclient'
+require 'pp'
 
 module RubyEDS
 
@@ -62,8 +63,9 @@ module RubyEDS
       query_hash[query_num] = query_string
       i = i+1
     end
-    
-    query_hash.merge(opts)
+
+    query_hash.merge!(opts)
+
     
     header_hash = {"x-authenticationToken" => "#{auth_token}", 
       "x-sessionToken" => "#{session_token}",
